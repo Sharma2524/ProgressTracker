@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- App Info -->
+  <title>Daily Progress Tracker</title>
+  <meta name="description" content="Track your daily progress with goals, priorities, and journal entries. A comprehensive offline-capable PWA for productivity and self-reflection." />
+  <meta name="keywords" content="daily tracker, progress tracker, goal tracker, productivity, journal, habits, offline PWA" />
+  <meta name="author" content="Daily Progress Tracker" />
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#3b82f6" />
+  <meta name="msapplication-TileColor" content="#3b82f6" />
+  <meta name="msapplication-navbutton-color" content="#3b82f6" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Daily Tracker" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Daily Progress Tracker" />
+  <meta property="og:description" content="Track your daily progress with goals, priorities, and journal entries" />
+  <meta property="og:image" content="/icons/og-image.png" />
+  <meta property="og:url" content="/" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Daily Progress Tracker" />
+  <meta name="twitter:description" content="Track your daily progress with goals, priorities, and journal entries" />
+  <meta name="twitter:image" content="/icons/og-image.png" />
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
